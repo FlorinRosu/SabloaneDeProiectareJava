@@ -1,16 +1,8 @@
 
-public class Image implements Element {
-
-	String url;
-
-	public Image(String url) {
-		super();
-		this.url = url;
-	}
-
+public class TableOfContents implements Element {
 	@Override
 	public void print() {
-		System.out.println("Image with name: " + this.url);
+		// TODO Auto-generated method stub
 
 	}
 
@@ -32,5 +24,5 @@ public class Image implements Element {
 		// TODO Auto-generated method stub
 
 	}
-
+	
 }
