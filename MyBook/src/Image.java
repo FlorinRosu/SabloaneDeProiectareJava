@@ -1,11 +1,18 @@
+import java.util.concurrent.TimeUnit;
 
-public class Image implements Element {
+public class Image implements Picture, Element {
 
 	String url;
+	String content;
 
 	public Image(String url) {
 		super();
 		this.url = url;
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
