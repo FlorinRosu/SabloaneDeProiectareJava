@@ -1,3 +1,4 @@
+
 import java.util.concurrent.TimeUnit;
 
 public class Image implements Picture, Element {

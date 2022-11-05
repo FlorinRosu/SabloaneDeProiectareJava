@@ -1,4 +1,5 @@
 
+
 public class Paragraph implements Element {
 
 	String title;
@@ -14,6 +15,11 @@ public class Paragraph implements Element {
 
 	}
 
+	
+	public void setAlignStrategy(AlignStrategy position) {
+		this.title = position.render(this.title);
+		
+	}
 	@Override
 	public void add(Element e) {
 		// TODO Auto-generated method stub

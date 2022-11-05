@@ -1,4 +1,5 @@
 
+
 public class ImageProxy implements Picture, Element {
 
 	private Image realImage = null;
@@ -19,19 +20,19 @@ public class ImageProxy implements Picture, Element {
 	@Override
 	public void print() {
 		loadImage().print();
-		
+
 	}
 
 	@Override
 	public void add(Element e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void remove(Element e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

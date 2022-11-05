@@ -1,5 +1,7 @@
 
+
 public class TableOfContents implements Element {
+	
 	@Override
 	public void print() {
 		// TODO Auto-generated method stub
@@ -24,5 +26,5 @@ public class TableOfContents implements Element {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 }
