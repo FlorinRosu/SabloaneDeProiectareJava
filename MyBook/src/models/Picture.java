@@ -1,4 +1,4 @@
-
+package models;
 public interface Picture {
 
 	public static String url() {

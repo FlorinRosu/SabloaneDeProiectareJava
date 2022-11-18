@@ -1,4 +1,6 @@
+package models;
 
+import services.AlignStrategy;
 
 public class Paragraph implements Element {
 
@@ -15,11 +17,11 @@ public class Paragraph implements Element {
 
 	}
 
-	
 	public void setAlignStrategy(AlignStrategy position) {
 		this.title = position.render(this.title);
-		
+
 	}
+
 	@Override
 	public void add(Element e) {
 		// TODO Auto-generated method stub
@@ -37,6 +39,12 @@ public class Paragraph implements Element {
 		return null;
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		v.visitParagraph(this);
+		
 	}
 
 }

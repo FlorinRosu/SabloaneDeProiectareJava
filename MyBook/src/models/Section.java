@@ -1,4 +1,4 @@
-
+package models;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -38,6 +38,15 @@ public class Section implements Element {
 	public Element get(int i) {
 		return this.e.get(i);
 
+	}
+
+	public void accept(Visitor v) {
+		v.visitSection(this);
+		Iterator<Element> it = this.e.iterator();
+		while (it.hasNext()) {
+			it.next().accept(v);
+		}
+		
 	}
 
 }

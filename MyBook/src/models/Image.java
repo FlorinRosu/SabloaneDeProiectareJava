@@ -1,4 +1,4 @@
-
+package models;
 import java.util.concurrent.TimeUnit;
 
 public class Image implements Picture, Element {
@@ -39,6 +39,12 @@ public class Image implements Picture, Element {
 		return null;
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		v.visitImage(this);
+		
 	}
 
 }

@@ -1,4 +1,4 @@
-
+package models;
 
 public class ImageProxy implements Picture, Element {
 
@@ -39,5 +39,11 @@ public class ImageProxy implements Picture, Element {
 	public Element get(int i) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		v.visitImageProxy(this);
+		
 	}
 }

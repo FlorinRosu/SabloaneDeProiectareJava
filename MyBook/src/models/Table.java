@@ -1,7 +1,13 @@
+package models;
 
+public class Table implements Element {
+	String t;
+		
+	public Table(String t) {
+	super();
+	this.t = t;
+}
 
-public class TableOfContents implements Element {
-	
 	@Override
 	public void print() {
 		// TODO Auto-generated method stub
@@ -25,6 +31,12 @@ public class TableOfContents implements Element {
 		return null;
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		v.visitTable(this);
+		
 	}
 
 }
