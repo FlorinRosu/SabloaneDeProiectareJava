@@ -37,16 +37,8 @@ public class Book extends Section {
 		Iterator<Element> it2 = this.e.iterator();
 		while (it2.hasNext()) {
 			it2.next().print();
-			}
+		}
 
 	}
-
-	@Override
-	public String toString() {
-		return "Book [a=" + a + ", title=" + title + ", e=" + e + "]";
-	}
-
-	
-	
 
 }

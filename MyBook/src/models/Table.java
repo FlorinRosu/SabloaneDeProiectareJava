@@ -1,8 +1,9 @@
 package models;
 
 public class Table implements Element {
+
 	String t;
-		
+	
 	public Table(String t) {
 	super();
 	this.t = t;
@@ -10,8 +11,7 @@ public class Table implements Element {
 
 	@Override
 	public void print() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Paragraph: " + this.t);
 	}
 
 	@Override
