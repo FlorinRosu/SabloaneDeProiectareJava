@@ -1,48 +1,46 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-public class TableOfContents implements Element {
-
-	List<Element> le = new ArrayList<>();
+public class TableOfContents implements Element{
+	ArrayList<String> contents;
+	
+	
+	public TableOfContents() {
+		this.contents = new ArrayList<String>();
+	}
 
 	@Override
 	public void print() {
-		int i = 0;
-		for (Element e : le) {
-
-			System.out.println(e + "........." + i);
-			i++;
-
-		}
-
+		contents.forEach(System.out::println);
+		
 	}
 
-	@Override
-	public void add(Element e) {
-		this.le.add(e);
-
+	public void addEntry(String entry) {
+		contents.add(entry);
 	}
-
+	
 	@Override
-	public void remove(Element e) {
+	public void add(Element element) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public Element get(int i) {
+	public void remove(Element element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Element get(int index) {
+		// TODO Auto-generated method stub
 		return null;
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
-	public void accept(Visitor v) {
-		v.visitTableOfContents(this);
-
+	public void accept(Visitor visitor) {
+		visitor.visitTableOfContents(this);
 	}
-
+	
 }

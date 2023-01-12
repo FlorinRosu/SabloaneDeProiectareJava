@@ -2,8 +2,5 @@ package services;
 
 public interface AlignStrategy {
 
-	public String render(String title);
-
-	
-
+	public String render(String text);
 }

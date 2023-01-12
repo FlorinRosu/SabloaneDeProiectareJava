@@ -1,19 +1,17 @@
 package models;
 
 public interface Visitor {
-
-	public void visitBook(Book b);
-
-	public void visitSection(Section b);
-
-	public void visitTableOfContents(TableOfContents b);
-
-	public void visitParagraph(Paragraph b);
-
-	public void visitImageProxy(ImageProxy b);
-
-	public void visitImage(Image b);
-
-	public void visitTable(Table b);
-
+	public void visitBook(Book book);
+	
+	public void visitSection(Section section);
+	
+	public void visitTableOfContents(TableOfContents tableOfContents);
+	
+	public void visitParagraph(Paragraph paragraph);
+	
+	public void visitImageProxy(ImageProxy imageProxy);
+	
+	public void visitImage(Image image);
+	
+	public void visitTable(Table table);
 }

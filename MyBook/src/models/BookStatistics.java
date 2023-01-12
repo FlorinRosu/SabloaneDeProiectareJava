@@ -1,63 +1,61 @@
 package models;
 
-public class BookStatistics implements Visitor {
-
-	int book;
-	int section;
-	int tableOfContents;
-	int paragraph;
-	int imageProxy;
-	int image;
-	int table;
-
-	@Override
-	public void visitBook(Book b) {
-		book++;
-
+public class BookStatistics implements Visitor{
+	int numberOfParagraphs;
+	int numberOfImages;
+	int numberOfTables;
+	
+	BookStatistics(){
+		this.numberOfParagraphs = 0;
+		this.numberOfImages = 0;
+		this.numberOfTables = 0;
 	}
 
 	@Override
-	public void visitSection(Section b) {
-		section++;
-
+	public void visitBook(Book book) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void visitTableOfContents(TableOfContents b) {
-		tableOfContents++;
-
+	public void visitSection(Section section) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void visitParagraph(Paragraph b) {
-		paragraph++;
-
+	public void visitTableOfContents(TableOfContents tableOfContents) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void visitImageProxy(ImageProxy b) {
-		image++;
+	public void visitParagraph(Paragraph paragraph) {
+		this.numberOfParagraphs++;
+		
 	}
 
 	@Override
-	public void visitImage(Image b) {
-		image++;
-
+	public void visitImageProxy(ImageProxy imageProxy) {
+		this.numberOfImages++;
+		
 	}
 
 	@Override
-	public void visitTable(Table b) {
-		table++;
-
+	public void visitImage(Image image) {
+		this.numberOfImages++;
+		
 	}
 
+	@Override
+	public void visitTable(Table table) {
+		this.numberOfTables++;
+		
+	}
+	
 	public void printStatistics() {
-		
-		System.out.println("Book Statistics:");
-		System.out.println(" *** Number of images: " + this.image);
-		System.out.println(" *** Number of tables: " + this.table);
-		System.out.println(" *** Number of paragraph: " + this.paragraph);
-		
+		System.out.println("Book Statistics:\n*** Number of images: " + this.numberOfImages 
+				+ "\n*** Number of tables: " + this.numberOfTables + "\n*** Number of paragraphs: " + this.numberOfParagraphs);
 	}
-
+	
 }

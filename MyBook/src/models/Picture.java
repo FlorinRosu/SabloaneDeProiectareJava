@@ -1,19 +1,11 @@
 package models;
+
+import java.awt.Dimension;
+
 public interface Picture {
-
-	public static String url() {
-		return "";
-
-	}
-
-	public static int dim() {
-		return 0;
-
-	}
-
-	public static String content() {
-		return "";
-
-	}
-
+	public String url();
+	
+	public Dimension dim();
+	
+	public PictureContent content();
 }

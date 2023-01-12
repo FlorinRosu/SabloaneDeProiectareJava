@@ -1,49 +1,73 @@
 package models;
 
-public class ImageProxy implements Picture, Element {
+import java.awt.Dimension;
 
-	private Image realImage = null;
-	private String url;
-
+public class ImageProxy implements Element, Picture {
+	Image realImage;
+	String url;
+	
+	
+	
 	public ImageProxy(String url) {
 		this.url = url;
-
+		this.realImage = null;
 	}
 
-	public Image loadImage() {
-		if (realImage == null) {
-			this.realImage = new Image(this.url);
+	private Image loadImage() {
+		if(realImage == null) {
+			realImage = new Image(this.url);
 		}
-		return this.realImage;
+		
+		return realImage;
 	}
-
+	
 	@Override
-	public void print() {
-		loadImage().print();
-
-	}
-
-	@Override
-	public void add(Element e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void remove(Element e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Element get(int i) {
+	public String url() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void accept(Visitor v) {
-		v.visitImageProxy(this);
+	public Dimension dim() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PictureContent content() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void print() {
+		realImage = loadImage();
+		System.out.println("ImageProxy with name: " + this.realImage.url);
 		
 	}
+
+	@Override
+	public void add(Element element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remove(Element element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Element get(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visitImageProxy(this);
+		
+	}
+
 }

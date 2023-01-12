@@ -2,49 +2,43 @@ package models;
 
 import services.AlignStrategy;
 
-public class Paragraph implements Element {
+public class Paragraph implements Element{
+	String text;
 
-	String title;
-
-	public Paragraph(String title) {
-		super();
-		this.title = title;
+	public Paragraph(String text) {
+		this.text = text;
 	}
-
-	@Override
+	
 	public void print() {
-		System.out.println("Paragraph: " + this.title);
-
-	}
-
-	public void setAlignStrategy(AlignStrategy position) {
-		this.title = position.render(this.title);
-
+		System.out.println("Paragraph: " + this.text);
 	}
 
 	@Override
-	public void add(Element e) {
+	public void add(Element element) {
 		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void remove(Element e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Element get(int i) {
-		return null;
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void accept(Visitor v) {
-		v.visitParagraph(this);
 		
 	}
 
+	@Override
+	public void remove(Element element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Element get(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setAlign(AlignStrategy alignStrategy) {
+		this.text = alignStrategy.render(this.text);
+		
+	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visitParagraph(this);
+		
+	}
 }

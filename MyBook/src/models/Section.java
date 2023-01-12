@@ -1,50 +1,45 @@
 package models;
+
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-public class Section implements Element {
-
+public class Section implements Element{
 	String title;
-
-	List<Element> e = new ArrayList<Element>();
-
+	ArrayList<Element> elements;
+	
 	public Section(String title) {
-		super();
 		this.title = title;
+		elements = new ArrayList<Element>();
 	}
 
 	@Override
 	public void print() {
 		System.out.println(this.title);
-		Iterator<Element> it = this.e.iterator();
-		while (it.hasNext()) {
-			it.next().print();
-		}
+		this.elements.forEach(Element::print);
+		
 	}
 
 	@Override
-	public void add(Element e) {
-		this.e.add(e);
-
+	public void add(Element element) {
+		this.elements.add(element);
+		
 	}
 
 	@Override
-	public void remove(Element e) {
-		this.e.remove(e);
+	public void remove(Element element) {
+		this.elements.remove(element);
+		
 	}
 
 	@Override
-	public Element get(int i) {
-		return this.e.get(i);
-
+	public Element get(int index) {
+		return this.elements.get(index);
 	}
 
-	public void accept(Visitor v) {
-		v.visitSection(this);
-		Iterator<Element> it = this.e.iterator();
-		while (it.hasNext()) {
-			it.next().accept(v);
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visitSection(this);
+		for(Element element: elements) {
+			element.accept(visitor);
 		}
 		
 	}

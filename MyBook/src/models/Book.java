@@ -1,44 +1,64 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-public class Book extends Section {
-
-	List<Author> a = new ArrayList<Author>();
-
+public class Book extends Section{
+	ArrayList<Author> authors;
+	ArrayList<Element> contents;
+	ArrayList<Observer> observerCollection;
+	TableOfContents toc;
+	
 	public Book(String title) {
 		super(title);
-	}
-
-	public void addAuthor(Author a) {
-		this.a.add(a);
-
-	}
-
-	public void addContent(Element e) {
-		this.e.add(e);
-
+		this.authors = new ArrayList<Author>();
+		this.contents = new ArrayList<Element>();
+		this.observerCollection = new ArrayList<Observer>();
 	}
 
 	public void print() {
-
-		System.out.println("Book: " + this.title + "\n");
-		Iterator<Author> it = a.iterator();
-
-		System.out.println("Authors:");
-
-		while (it.hasNext()) {
-			System.out.println("Author: " + it.next().print());
-		}
+		System.out.println("Book: " + this.title +"\n\n" + "Authors:");
+		this.authors.forEach(Author::print);
 		System.out.println();
-
-		Iterator<Element> it2 = this.e.iterator();
-		while (it2.hasNext()) {
-			it2.next().print();
-		}
-
+		this.contents.forEach(Element::print);
+	}
+	
+	public TableOfContents getTOC() {
+		return this.toc;
 	}
 
+	public void addAuthor(Author author) {
+		this.authors.add(author);
+		
+	}
+
+	public void addContent(Element element) {
+		this.contents.add(element);
+		
+	}
+	
+	public void registerObservers(Observer observer) {
+		this.observerCollection.add(observer);
+	}
+	
+	public void unregisterObserver(Observer observer) {
+		this.observerCollection.remove(observer);
+	}
+
+	public void notifyObservers() {
+		for (Observer observer: observerCollection) {
+			observer.update();
+		}
+	}
+	
+	public void accept(Visitor visitor) {
+		visitor.visitBook(this);
+		for(Element element: contents) {
+			element.accept(visitor);
+		}
+	}
+	
+	public void setTOC(TableOfContents toc) {
+		this.toc = toc;
+	}
 }
+

@@ -1,17 +1,14 @@
 package models;
-import java.util.ArrayList;
-import java.util.List;
 
 public interface Element {
-
+	
 	public void print();
-
-	public void add(Element e);
-
-	public void remove(Element e);
-
-	public Element get(int i);
-
-	public void accept(Visitor v);
-
+	
+	public void add(Element element);
+	
+	public void remove(Element element);
+	
+	public Element get(int index);
+	
+	public void accept(Visitor visitor);
 }

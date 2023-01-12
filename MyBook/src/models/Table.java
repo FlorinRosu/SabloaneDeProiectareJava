@@ -1,42 +1,37 @@
 package models;
 
-public class Table implements Element {
+public class Table implements Element{
+	String title;
 
-	String t;
+	public Table(String title) {
+		this.title = title;
+	}
 	
-	public Table(String t) {
-	super();
-	this.t = t;
-}
-
-	@Override
 	public void print() {
-		System.out.println("Paragraph: " + this.t);
+		System.out.println("Table with Title: " + this.title);
 	}
 
 	@Override
-	public void add(Element e) {
+	public void add(Element element) {
 		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void remove(Element e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Element get(int i) {
-		return null;
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void accept(Visitor v) {
-		v.visitTable(this);
 		
 	}
 
+	@Override
+	public void remove(Element element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Element get(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visitTable(this);
+		
+	}
 }
